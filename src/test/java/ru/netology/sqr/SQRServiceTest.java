@@ -6,11 +6,11 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SQRServiceTest {
-
     @ParameterizedTest
     @CsvSource(value = {"'squares in the range', 200, 300, 3",
             "'border start', 100, 300, 8",
-            "'border end', 9000, 10000, 4"})
+            "'border end', 9000, 10000, 5",
+            "'squares out of range', 50, 90, 0"})
     void shouldSqrCeil(String name, int start, int end, int expected) {
         SQRService sqrService = new SQRService();
 
@@ -18,5 +18,4 @@ class SQRServiceTest {
 
         assertEquals(expected, actual);
     }
-
 }
